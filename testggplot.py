@@ -19,9 +19,9 @@ swatch = get_color_swatch()
 diamonds.head()
 
 #blank canvas
-p = ggplot(aes(x='date', y='beef', color = 'clarity'), data=meat)
+p = ggplot(aes(x='date', y='beef', color = ''), data=meat)
 #add points to plot
-p + geom_point()
+p + geom_point() + ggplot.scale_fill_brewer()
 p.save('img/testimage.png', width=12, height=8, dpi=144)
 #p.show()
 p + geom_point() + geom_line() + scale_color_brewer(type='seq')
