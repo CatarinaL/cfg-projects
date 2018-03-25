@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }} - image</title>
+    <link rel="stylesheet" href="../static/css/plots.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <h1>
+      My pretty plot!
+    </h1>
+    <div id="svg_canvas">
+
+    </div>
+    <script>
+      var svg_url = "{{ url_for('fig', param = title) }}";
+      console.log(svg_url);
+      $("#svg_canvas").load(svg_url);
+    </script>
+  </body>
+</html>

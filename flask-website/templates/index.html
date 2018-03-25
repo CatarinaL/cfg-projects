@@ -1,11 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>Test Weather</title>
-  <meta name="viewport" content="initial-scale=1.0">
-  <meta charset="utf-8">
-</head>
-<body>
-  <p>nothing to see here... yet</p>
-</body>
+  <head>
+    <title>"my first flask page"</title>
+  </head>
+  <body>
+    <h1>Hello flask+html</h1>
+
+      {% if name %}
+      <!-- this is a Jinja "interface", -->
+      <p>Hello {{name}}!</p>
+      <!-- the html_name gets its value from the url-->
+      {% else %}
+      <p>Hello anonymous person!</p>
+      {% endif %}
+
+      <p>Let's keep in touch!</p>
+      <div id="contact-form">
+          <form method="post" action="/signup">
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email" required="required">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required="required">
+            <label for="content">Message:</label>
+            <input type="text" id="content" name="content" required="content">
+            <input type="submit" value="Submit" id="submit-button">
+
+          </form>
+      </div>
+
+  </body>
 </html>
