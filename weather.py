@@ -41,4 +41,4 @@ for item_at_index in info_response['list']:
     humidity_date_dict["humidity"] = item_at_index['main']['humidity']
     humidity_date_dict["date"] = item_at_index['dt_txt']
 
-print(humidity_date_dict) #redo this: make dictionary with key-date:value:humidity
+print(humidity_date_dict) #TODO this: make dictionary with key-date:value:humidity
