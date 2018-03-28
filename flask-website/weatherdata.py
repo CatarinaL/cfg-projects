@@ -1,3 +1,4 @@
+from datetime import datetime
 import pandas
 import matplotlib as mpl
 mpl.use('Agg')
@@ -23,5 +24,15 @@ pp.pprint(data[["date", "mean_humidity"]].tail(20))
 #dot syntax and std deviation method... (NOTE: using data.std() will give results for all columns)
 pp.pprint("Mean Humidity - standard deviation of last 20 entries: " + str(data.mean_humidity.tail(20).std()))
 
+print(data.mean_temp.hist()) #TODO: show plot, this is the axes(?) object <matplotlib.axes.AxesSubplot at 0.775x0.77>
 
-print(data.mean_temp.hist()) #TODO: show plot, this is the object <matplotlib.axes.AxesSubplot at 0.775x0.77>
+second_date = data.date.values[1]
+#strptime() converts to datetime object according to format of data
+object_date = datetime.strptime(second_date, "%Y-%m-%d")
+#strftime() to output in desired format
+pp.pprint(object_date.strftime("%a, %d %m %Y"))
+
+#bulk editing with apply and anonymous functions
+data.date = data.date.values(3).apply(lambda d: datetime.strptime(d, "%Y-%m-%d"))
+for d in data.date:
+    pp.pprint(d.strftime("%a, %d %m %Y"))
